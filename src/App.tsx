@@ -503,6 +503,17 @@ function Landing({ go }: { go: (s: string) => void }) {
           })}
         </div>
       </section>
+      <section className="no-metrics">
+        <p className="eyebrow">A DIFFERENT KIND OF SOCIAL SPACE</p>
+        <h2>NO METRICS.</h2>
+        <p className="no-metrics-copy">
+          No display of member counts, likes, reposts, views or any other
+          public metrics.
+        </p>
+        <strong>
+          The days of impressing others with fake metrics are gone.
+        </strong>
+      </section>
       <section id="how" className="how">
         <p className="eyebrow">YOUR SOCIAL LIFE, OWNED</p>
         <h2>LIVE IN MINUTES.</h2>
