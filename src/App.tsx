@@ -5,7 +5,7 @@ import './App.css'
 type Theme = 'trek' | 'mahmood' | 'ferrari'
 type Person = { name: string; initials: string; bio: string; location: string; color: string }
 type Comment = { id: string; author: Person; text: string; likes: number; replies?: Comment[] }
-type Post = { id: string; author: Person; time: string; text: string; likes: number; comments: Comment[]; visual?: string; poll?: boolean; audio?: boolean; liked?: boolean }
+type Post = { id: string; author: Person; time: string; text: string; likes: number; comments: Comment[]; visual?: string; interaction?: 'crew'|'collection'|'design'|'race'; poll?: boolean; audio?: boolean; liked?: boolean }
 const people: Record<string, Person> = {
   official:{name:'Official Wall', initials:'OW',bio:'Official updates from the Wall team.',location:'Everywhere',color:'#b8ff3d'},
   maya:{name:'Maya Chen',initials:'MC',bio:'Collector of stories, stars and good coffee.',location:'Melbourne, AU',color:'#7d7cff'},
@@ -17,9 +17,9 @@ const people: Record<string, Person> = {
 }
 const wallData: Record<Theme, {name:string; label:string; sub:string; desc:string; count:number; accent:string; posts:Post[]}> = {
  trek:{name:'STAR TREK WALL',label:'FILM & FRANCHISE',sub:'The official Star Trek social universe.',desc:'News, trailers, fan theories, artwork and conversations from across the galaxy.',count:48231,accent:'#88a9ff',posts:[
-  {id:'t1',author:{...people.official,name:'Star Trek'},time:'12m',text:'A new journey begins. Watch the first teaser and tell us which part of the galaxy you want to explore next.',likes:2843,comments:[{id:'c1',author:people.maya,text:'The colour and scale of this are incredible.',likes:28}],visual:'cosmos'},
+  {id:'t1',author:{...people.official,name:'Star Trek'},time:'12m',text:'A new journey begins. Which part of the galaxy should we explore next?',likes:2843,comments:[{id:'c1',author:people.maya,text:'The old frontier. Give us the quiet, strange stories.',likes:28}],interaction:'crew'},
   {id:'t2',author:people.maya,time:'35m',text:'I still think the greatest stories are the ones where there is no easy answer. Which episode stayed with you the longest?',likes:482,comments:[{id:'c2',author:people.daniel,text:'The ones that make you question your own certainty.',likes:16}]},
-  {id:'t3',author:people.daniel,time:'1h',text:'My collection finally has its own display wall. It took three weekends, but I think it was worth it.',likes:619,comments:[],visual:'collect'},
+  {id:'t3',author:people.daniel,time:'1h',text:'My collection finally has its own display wall. It took three weekends, but I think it was worth it.',likes:619,comments:[],interaction:'collection'},
   {id:'t4',author:{...people.official,name:'Star Trek'},time:'2h',text:'Cast conversation begins Friday at 7:00 PM. Leave your questions below and we may include them in the live discussion.',likes:1204,comments:[]},
   {id:'t5',author:{...people.maya,name:'Arjun Patel',initials:'AP'},time:'3h',text:'Theory: the smallest detail in the teaser may be the most important one. Look at the star map behind the captain.',likes:312,comments:[]},
   {id:'t6',author:{...people.aisha,name:'Sofia Williams',initials:'SW'},time:'5h',text:'My daughter watched her first Star Trek episode tonight. A new generation has officially joined the crew.',likes:888,comments:[]}]},
@@ -31,9 +31,9 @@ const wallData: Record<Theme, {name:string; label:string; sub:string; desc:strin
   {id:'m5',author:people.omar,time:'3h',text:'I first heard Mahmood’s music through my father. Now my own daughter asks me to play the same songs in the car.',likes:682,comments:[]},
   {id:'m6',author:{...people.official,name:'Mahmood Khan',initials:'MK'},time:'5h',text:'A short piece from tonight’s recording session. Headphones recommended.',likes:912,comments:[],audio:true}]},
  ferrari:{name:'FERRARI WALL',label:'GLOBAL BRAND',sub:'Performance, design and passion—shared.',desc:'The official Wall for Ferrari cars, racing, launches, collectors, events and the people who live the brand.',count:72358,accent:'#f03c39',posts:[
-  {id:'f1',author:{...people.official,name:'Ferrari Official',initials:'F'},time:'9m',text:'Every line begins with a purpose. A new chapter in Ferrari design arrives this Thursday.',likes:4821,comments:[{id:'f1c',author:people.luca,text:'The proportions are unmistakable.',likes:62}],visual:'car'},
+  {id:'f1',author:{...people.official,name:'Ferrari Official',initials:'F'},time:'9m',text:'Every line begins with a purpose. A new chapter in Ferrari design arrives this Thursday. What detail do you notice first?',likes:4821,comments:[{id:'f1c',author:people.luca,text:'The tension between the front fender and cabin. It feels alive.',likes:62}],interaction:'design'},
   {id:'f2',author:people.luca,time:'42m',text:'Early morning drive before the roads filled up. Some moments do not need a destination.',likes:1096,comments:[]},
-  {id:'f3',author:{...people.official,name:'Ferrari Racing',initials:'FR'},time:'1h',text:'Race weekend begins now. Predictions for qualifying?',likes:3243,comments:[],visual:'race'},
+  {id:'f3',author:{...people.official,name:'Ferrari Racing',initials:'FR'},time:'1h',text:'Race weekend begins now. Predictions for qualifying?',likes:3243,comments:[{id:'f3c',author:people.isabella,text:'Leclerc by two tenths. The track suits him.',likes:14}],interaction:'race'},
   {id:'f4',author:people.isabella,time:'2h',text:'My grandfather kept every Ferrari magazine he bought from 1968 onward. We finally organised the complete collection.',likes:783,comments:[]},
   {id:'f5',author:{...people.official,name:'Ferrari Official',initials:'F'},time:'4h',text:'Maranello Design Conversation. Join the team behind the new interior architecture for a live discussion.',likes:2452,comments:[]},
   {id:'f6',author:{...people.daniel,name:'James Walker',initials:'JW'},time:'6h',text:'There is a difference between seeing one in photographs and hearing one approach from half a kilometre away.',likes:920,comments:[]}]}
