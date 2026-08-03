@@ -374,15 +374,14 @@ function Landing({ go }: { go: (s: string) => void }) {
         <div>
           <p className="eyebrow">CREATE YOUR OWN BRANDED SOCIAL NETWORK</p>
           <h1>
-            EVERY AUDIENCE
+            EVERYONE
             <br />
-            DESERVES ITS
+            DESERVES THEIR
             <br />
             <em>OWN WALL.</em>
           </h1>
           <p className="lead">
-            Create a fully branded social Wall where your audience can post,
-            upload, comment and share.
+            For artists, films, brands, companies and communities. Free.
           </p>
           <p className="hero-support">
             Launch a familiar social Wall for your artist, film, brand or
