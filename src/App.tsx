@@ -404,7 +404,6 @@ function Landing({ go }: { go: (s: string) => void }) {
           <p className="live-label">● LIVE ARTIST WALL</p>
           <div className="previewbar">
             <b>MAHMOOD KHAN</b>
-            <span>● 19k members</span>
             <button>JOIN MY WALL</button>
           </div>
           <div className="previewpost release">
@@ -434,8 +433,7 @@ function Landing({ go }: { go: (s: string) => void }) {
                 <i>MK</i>
               </div>
               <div className="previewactions">
-                <Heart size={16} /> 2,841 <MessageCircle size={16} /> 186{" "}
-                <Share2 size={16} /> Share
+                <Heart size={16} /> Like <MessageCircle size={16} /> Comment{" "}<Share2 size={16} /> Share
               </div>
             </div>
           </div>
@@ -674,16 +672,13 @@ function WallPage({ theme, go }: { theme: Theme; go: (s: string) => void }) {
         <a>About</a>
         <a>Members</a>
         <a>Media</a>
-        <a>Popular posts</a>
+        <a>Recent posts</a>
       </div>
       <div className="wallgrid">
         <aside className="leftside">
           <h3>{wall.name}</h3>
           <p>{wall.desc}</p>
           <b>✓ OFFICIAL WALL</b>
-          <strong>
-            {(wall.count + (joined ? 1 : 0)).toLocaleString()} members
-          </strong>
           <hr />
           <a>About</a>
           <a>Members</a>
@@ -751,17 +746,6 @@ function WallPage({ theme, go }: { theme: Theme; go: (s: string) => void }) {
             <p className="eyebrow">ABOUT THIS WALL</p>
             <h3>{wall.sub}</h3>
             <span>{wall.desc}</span>
-          </section>
-          <section>
-            <p className="eyebrow">ONLINE NOW</p>
-            <div className="online">
-              {Object.values(people)
-                .slice(1, 5)
-                .map((p) => (
-                  <Avatar key={p.name} p={p} onClick={() => setProfile(p)} />
-                ))}
-            </div>
-            <b>214 members online</b>
           </section>
           <section className="promo">
             <p>Want a Wall like this?</p>
@@ -844,10 +828,10 @@ function PostCard({
       {post.poll && (
         <div className="poll">
           <button onClick={() => notice("Vote recorded")}>
-            Release the original demo <b>62%</b>
+            Release the original demo
           </button>
           <button onClick={() => notice("Vote recorded")}>
-            Finish the full version <b>38%</b>
+            Finish the full version
           </button>
         </div>
       )}
@@ -862,14 +846,7 @@ function PostCard({
           </span>
           <small>2:48</small>
         </div>
-      )}
-      <div className="stats">
-        <span>{post.likes.toLocaleString()} reactions</span>
-        <button onClick={() => setComments(!comments)}>
-          {post.comments.length} comments
-        </button>
-      </div>
-      <div className="postactions">
+      )}\r\n      <div className="postactions">
         <button
           className={post.liked ? "active" : ""}
           onClick={() =>
@@ -897,7 +874,7 @@ function PostCard({
               <div>
                 <b>{c.author.name}</b>
                 <p>{c.text}</p>
-                <button>Like · {c.likes || ""}</button>
+                <button>Like</button>
                 <button>Reply</button>
               </div>
             </div>
@@ -963,20 +940,7 @@ function Profile({ p, close }: { p: Person; close: () => void }) {
         <Avatar p={p} />
         <h2>{p.name}</h2>
         <p>{p.bio}</p>
-        <span>{p.location} · Joined May 2024</span>
-        <div>
-          <b>
-            1.4k
-            <br />
-            <small>Followers</small>
-          </b>
-          <b>
-            84
-            <br />
-            <small>Posts</small>
-          </b>
-        </div>
-        <button className="follow" onClick={() => setFollow(!follow)}>
+        <span>{p.location} · Joined May 2024</span>\r\n        <button className="follow" onClick={() => setFollow(!follow)}>
           {follow ? "Following" : "Follow"}
         </button>
       </section>
