@@ -511,6 +511,36 @@ function Landing({ go }: { go: (s: string) => void }) {
           The days of impressing others with fake metrics are gone.
         </strong>
       </section>
+      <section className="filmmakers">
+        <div className="filmmakers-mark" aria-hidden="true">
+          <span>01</span>
+          <i />
+          <span>ROLLING</span>
+        </div>
+        <div className="filmmakers-copy">
+          <p className="eyebrow">FILMMAKERS.</p>
+          <h2>Don’t wait until your film is finished to look for an audience.</h2>
+          <p className="filmmakers-lead">
+            Create its Official Wall from the beginning.
+          </p>
+          <ul>
+            <li>Share the idea.</li>
+            <li>Introduce the cast.</li>
+            <li>Post from production.</li>
+            <li>Release 15-second previews.</li>
+            <li>Invite people into the journey.</li>
+            <li>Keep everyone together after release.</li>
+          </ul>
+        </div>
+        <div className="filmmakers-closing">
+          <h3>
+            BUILD THE AUDIENCE
+            <br />
+            <em>WHILE YOU BUILD THE FILM.</em>
+          </h3>
+          <p>Every film deserves its own social world.</p>
+        </div>
+      </section>
       <section id="how" className="how">
         <p className="eyebrow">YOUR SOCIAL LIFE, OWNED</p>
         <h2>LIVE IN MINUTES.</h2>
